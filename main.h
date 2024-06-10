@@ -20,7 +20,8 @@ void createFunction(ObjectType variableType, char* funcName);
 void pushFunInParm(Object* b);
 
 Object* findVariable(char* variableName);
-Object* createVariable(ObjectType variableType, char* variableName, int variableFlag);
+// Object* createVariable(ObjectType variableType, char* variableName, int variableFlag);
+void createVariable(ObjectType variableType, char* variableName, int variableFlag);
 bool objectExpression(char op, Object* a, Object* b, Object* out);
 bool objectExpBinary(char op, Object* a, Object* b, Object* out);
 bool objectExpBoolean(char op, Object* a, Object* b, Object* out);
@@ -34,5 +35,8 @@ bool objectDecAssign(Object* a, Object* out);
 bool objectCast(ObjectType variableType, Object* dest, Object* out);
 
 void stdoutPrint();
+
+extern ObjectType coutObjectType[50];
+extern int numberOfCoutObjectType;
 
 #endif

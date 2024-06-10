@@ -25,12 +25,16 @@ typedef struct _symbolData {
     int32_t lineno;
     char* func_sig;
     uint8_t func_var;
+
+    ObjectType type;    // 新增
+
 } SymbolData;
 
 typedef struct _object {
-    ObjectType type;
+    ObjectType funcType;    // 改動 原 ObjectType type;
     uint64_t value;
-    SymbolData* symbol;
+    //SymbolData* symbol;
+    SymbolData symbol[20];
 } Object;
 
 extern int yylineno;

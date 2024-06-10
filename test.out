@@ -1,0 +1,400 @@
+make[1]: 進入目錄「/home/E14106375/2024-Spring-NCKU-CompilerHW2」
+mkdir -p ./build
+mkdir -p ./build/out
+---------- Compile Lex ----------
+lex -o ./build/lex.yy.c ./compiler.l
+---------- Compile Yacc ----------
+yacc -d -v -o ./build/y.tab.c ./compiler.y
+---------- Compile ./main.c ----------
+gcc -g -c ./main.c -o ./build/main.o
+---------- Create compiler ----------
+gcc -Wall -O0 -ggdb -o ./build/out/compiler -iquote ./ -iquote ../ ./build/lex.yy.c ./build/y.tab.c ./build/main.o
+make[1]: 離開目錄「/home/E14106375/2024-Spring-NCKU-CompilerHW2」
+########## subtask01-helloworld ##########
+✅[0;32m testcase01 output matches expected[0m
+✅[0;32m testcase02 output matches expected[0m
+✅[0;32m testcase03 output matches expected[0m
+✅[0;32m testcase04 output matches expected[0m
+✅[0;32m testcase05 output matches expected[0m
+✅[0;32m testcase06 output matches expected[0m
+########## subtask02-comment ##########
+✅[0;32m testcase01 output matches expected[0m
+✅[0;32m testcase02 output matches expected[0m
+✅[0;32m testcase03 output matches expected[0m
+########## subtask03-precedenc ##########
+✅[0;32m testcase01 output matches expected[0m
+✅[0;32m testcase02 output matches expected[0m
+########## subtask04-assigment ##########
+✅[0;32m testcase01 output matches expected[0m
+✅[0;32m testcase02 output matches expected[0m
+########## subtask05-casting ##########
+✅[0;32m testcase01 output matches expected[0m
+✅[0;32m testcase02 output matches expected[0m
+########## subtask06-if ##########
+✅[0;32m testcase01 output matches expected[0m
+✅[0;32m testcase02 output matches expected[0m
+########## subtask07-while ##########
+✅[0;32m testcase01 output matches expected[0m
+########## subtask08-for ##########
+✅[0;32m testcase01 output matches expected[0m
+########## subtask09-function ##########
+✅[0;32m testcase01 output matches expected[0m
+########## subtask10-array ##########
+✅[0;32m testcase01 output matches expected[0m
+✅[0;32m testcase02 output matches expected[0m
+########## subtask11-autotype ##########
+✅[0;32m testcase01 output matches expected[0m
+########## subtask12-loop2 ##########
+✅[0;32m testcase01 output matches expected[0m
+✅[0;32m testcase02 output matches expected[0m
+########## subtask13-2Darray ##########
+--- /home/share/hw2/answer/subtask13-2Darray/testcase01.out	2024-05-04 23:56:39.949441053 +0800
++++ /home/E14106375/2024-Spring-NCKU-CompilerHW2/result/subtask13-2Darray/testcase01.out	2024-05-26 16:03:30.882298372 +0800
+@@ -4,65 +4,7 @@
+ > Create symbol table (scope level 1)
+ > Insert `argv` (addr: 0) to scope level 1
+ INT_LIT 3
+-INT_LIT 3
+-> Insert `a` (addr: 1) to scope level 1
+-INT_LIT 0
+-INT_LIT 0
+-IDENT (name=a, address=1)
+-INT_LIT 1
+-EQL_ASSIGN
+-INT_LIT 0
+-INT_LIT 1
+-IDENT (name=a, address=1)
+-INT_LIT 2
+-EQL_ASSIGN
+-INT_LIT 0
+-INT_LIT 2
+-IDENT (name=a, address=1)
+-INT_LIT 3
+-EQL_ASSIGN
+-INT_LIT 1
+-INT_LIT 1
+-IDENT (name=a, address=1)
+-INT_LIT 4
+-EQL_ASSIGN
+-INT_LIT 2
+-INT_LIT 2
+-IDENT (name=a, address=1)
+-INT_LIT 5
+-EQL_ASSIGN
+-INT_LIT 0
+-INT_LIT 0
+-IDENT (name=a, address=1)
+-IDENT (name=endl, address=-1)
+-cout int string
+-INT_LIT 0
+-INT_LIT 1
+-IDENT (name=a, address=1)
+-IDENT (name=endl, address=-1)
+-cout int string
+-INT_LIT 0
+-INT_LIT 2
+-IDENT (name=a, address=1)
+-IDENT (name=endl, address=-1)
+-cout int string
+-INT_LIT 1
+-INT_LIT 1
+-IDENT (name=a, address=1)
+-IDENT (name=endl, address=-1)
+-cout int string
+-INT_LIT 2
+-INT_LIT 2
+-IDENT (name=a, address=1)
+-IDENT (name=endl, address=-1)
+-cout int string
+-
+-> Dump symbol table (scope level: 1)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-0         argv                string    0         1         -         
+-1         a                   int       1         2         -         
+-
+-> Dump symbol table (scope level: 0)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-0         main                function  -1        1         ([Ljava/lang/String;)I
+-Total lines: 13
++/home/share/hw2/input/subtask13-2Darray/testcase01.cpp:2:13: error:  syntax error
++     2 |    int a[3][ ];
++       |            ^
++Total lines: 2
+❌[0;31m 'subtask13-2Darray/testcase01' output does not match expected[0m
+########## subtask14-forall ##########
+--- /home/share/hw2/answer/subtask14-forall/testcase01.out	2024-05-04 23:56:39.949441053 +0800
++++ /home/E14106375/2024-Spring-NCKU-CompilerHW2/result/subtask14-forall/testcase01.out	2024-05-26 16:03:30.898298372 +0800
+@@ -8,174 +8,8 @@
+ INT_LIT 0
+ LES
+ IF
+-IDENT (name=num, address=0)
+-IDENT (name=num, address=0)
+-INT_LIT 1
+-NEG
+-MUL
+-IDENT (name=mod, address=1)
+-DIV
+-INT_LIT 1
+-ADD
+-IDENT (name=mod, address=1)
+-MUL
+-ADD
+-RETURN
+-IDENT (name=num, address=0)
+-IDENT (name=mod, address=1)
+-REM
+-RETURN
+-
+-> Dump symbol table (scope level: 1)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-0         num                 int       0         1         -         
+-1         mod                 int       1         1         -         
+-func: nothing_function
+-> Insert `nothing_function` (addr: -1) to scope level 0
+-> Create symbol table (scope level 1)
+-> Insert `s` (addr: 2) to scope level 1
+-IDENT (name=s, address=2)
+-IDENT (name=endl, address=-1)
+-cout string string
+-INT_LIT 1000000007
+-INT_LIT 99824353
+-IDENT (name=mod, address=-1)
+-call: mod(II)I
+-IDENT (name=endl, address=-1)
+-cout int string
+-INT_LIT 10
+-NEG
+-INT_LIT 2
+-IDENT (name=mod, address=-1)
+-call: mod(II)I
+-IDENT (name=endl, address=-1)
+-cout int string
+-RETURN
+-
+-> Dump symbol table (scope level: 1)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-0         s                   string    2         5         -         
+-func: main
+-> Insert `main` (addr: -1) to scope level 0
+-> Create symbol table (scope level 1)
+-> Insert `argv` (addr: 3) to scope level 1
+-STR_LIT "Hello world"
+-IDENT (name=nothing_function, address=-1)
+-call: nothing_function(Ljava/lang/String;)V
+-INT_LIT 99824353
+-> Insert `apple` (addr: 4) to scope level 1
+-STR_LIT "apple!"
+-IDENT (name=nothing_function, address=-1)
+-call: nothing_function(Ljava/lang/String;)V
+-IDENT (name=apple, address=4)
+-INT_LIT 2
+-IDENT (name=mod, address=-1)
+-call: mod(II)I
+-INT_LIT 2
+-REM
+-INT_LIT 1
+-EQL
+-IF
+ > Create symbol table (scope level 2)
+-IDENT (name=apple, address=4)
+-INT_LIT 998244353
+-EQL
+-IF
+-> Create symbol table (scope level 3)
+-FOR
+-> Create symbol table (scope level 4)
+-INT_LIT 0
+-> Insert `i` (addr: 5) to scope level 4
+-IDENT (name=i, address=5)
+-INT_LIT 10
+-LES
+-IDENT (name=i, address=5)
+-INT_LIT 1
+-ADD_ASSIGN
+-INT_LIT 10
+-> Insert `q` (addr: 6) to scope level 4
+-WHILE
+-IDENT (name=q, address=6)
+-INT_LIT 0
+-NEQ
+-> Create symbol table (scope level 5)
+-IDENT (name=q, address=6)
+-INT_LIT 1
+-SUB_ASSIGN
+-STR_LIT "OK!"
+-IDENT (name=endl, address=-1)
+-cout string string
+-
+-> Dump symbol table (scope level: 5)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-
+-> Dump symbol table (scope level: 4)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-0         i                   int       5         28        -         
+-1         q                   int       6         29        -         
+-FOR
+-> Create symbol table (scope level 4)
+-INT_LIT 0
+-> Insert `i` (addr: 7) to scope level 4
+-IDENT (name=i, address=7)
+-INT_LIT 20
+-LES
+-IDENT (name=i, address=7)
+-INT_LIT 2
+-ADD_ASSIGN
+-IDENT (name=apple, address=4)
+-INT_LIT 2
+-IDENT (name=mod, address=-1)
+-call: mod(II)I
+-> Insert `q` (addr: 8) to scope level 4
+-WHILE
+-IDENT (name=q, address=8)
+-INT_LIT 0
+-GTR
+-> Create symbol table (scope level 5)
+-IDENT (name=q, address=8)
+-INT_LIT 1
+-SUB_ASSIGN
+-STR_LIT "OK!"
+-IDENT (name=endl, address=-1)
+-cout string string
+-
+-> Dump symbol table (scope level: 5)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-
+-> Dump symbol table (scope level: 4)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-0         i                   int       7         36        -         
+-1         q                   int       8         37        -         
+-
+-> Dump symbol table (scope level: 3)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-ELSE
+-> Create symbol table (scope level 3)
+-STR_LIT "something wrong"
+-IDENT (name=nothing_function, address=-1)
+-call: nothing_function(Ljava/lang/String;)V
+-
+-> Dump symbol table (scope level: 3)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-
+-> Dump symbol table (scope level: 2)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-IDENT (name=apple, address=4)
+-INT_LIT 2
+-IDENT (name=mod, address=-1)
+-call: mod(II)I
+-IDENT (name=endl, address=-1)
+-cout int string
+-
+-> Dump symbol table (scope level: 1)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-0         argv                string    3         11        -         
+-1         apple               int       4         23        -         
+-
+-> Dump symbol table (scope level: 0)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-0         mod                 function  -1        1         (II)I     
+-1         nothing_function    function  -1        5         (Ljava/lang/String;)V
+-2         main                function  -1        11        ([Ljava/lang/String;)I
+-Total lines: 61
++/home/share/hw2/input/subtask14-forall/testcase01.cpp:2:19: error:  syntax error
++     2 |    if( num < 0 ) return ( num + ( num * -1 / mod + 1 ) * mod ); // cool!
++       |                  ^
++Total lines: 2
+❌[0;31m 'subtask14-forall/testcase01' output does not match expected[0m
+--- /home/share/hw2/answer/subtask14-forall/testcase02.out	2024-05-04 23:56:39.949441053 +0800
++++ /home/E14106375/2024-Spring-NCKU-CompilerHW2/result/subtask14-forall/testcase02.out	2024-05-26 16:03:30.910298372 +0800
+@@ -4,85 +4,7 @@
+ > Create symbol table (scope level 1)
+ > Insert `argv` (addr: 0) to scope level 1
+ INT_LIT 3
+-INT_LIT 3
+-> Insert `a` (addr: 1) to scope level 1
+-FOR
+-> Create symbol table (scope level 2)
+-INT_LIT 0
+-> Insert `i` (addr: 2) to scope level 2
+-IDENT (name=i, address=2)
+-INT_LIT 3
+-LES
+-IDENT (name=i, address=2)
+-INC_ASSIGN
+-FOR
+-> Create symbol table (scope level 3)
+-INT_LIT 0
+-> Insert `j` (addr: 3) to scope level 3
+-IDENT (name=j, address=3)
+-INT_LIT 3
+-LES
+-IDENT (name=j, address=3)
+-INC_ASSIGN
+-IDENT (name=i, address=2)
+-IDENT (name=j, address=3)
+-IDENT (name=a, address=1)
+-IDENT (name=i, address=2)
+-IDENT (name=j, address=3)
+-ADD
+-INT_LIT 998244353
+-ADD
+-INT_LIT 82781
+-REM
+-EQL_ASSIGN
+-
+-> Dump symbol table (scope level: 3)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-0         j                   int       3         5         -         
+-
+-> Dump symbol table (scope level: 2)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-0         i                   int       2         3         -         
+-FOR
+-> Create symbol table (scope level 2)
+-INT_LIT 2
+-> Insert `i` (addr: 4) to scope level 2
+-IDENT (name=i, address=4)
+-INT_LIT 0
+-GEQ
+-IDENT (name=i, address=4)
+-DEC_ASSIGN
+-FOR
+-> Create symbol table (scope level 3)
+-INT_LIT 0
+-> Insert `j` (addr: 5) to scope level 3
+-IDENT (name=j, address=5)
+-INT_LIT 3
+-LES
+-IDENT (name=j, address=5)
+-INC_ASSIGN
+-IDENT (name=i, address=4)
+-IDENT (name=j, address=5)
+-IDENT (name=a, address=1)
+-IDENT (name=endl, address=-1)
+-cout int string
+-
+-> Dump symbol table (scope level: 3)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-0         j                   int       5         13        -         
+-
+-> Dump symbol table (scope level: 2)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-0         i                   int       4         11        -         
+-INT_LIT 0
+-RETURN
+-
+-> Dump symbol table (scope level: 1)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-0         argv                string    0         1         -         
+-1         a                   int       1         2         -         
+-
+-> Dump symbol table (scope level: 0)
+-Index     Name                Type      Addr      Lineno    Func_sig  
+-0         main                function  -1        1         ([Ljava/lang/String;)I
+-Total lines: 20
++/home/share/hw2/input/subtask14-forall/testcase02.cpp:2:13: error:  syntax error
++     2 |    int a[3][ ];
++       |            ^
++Total lines: 2
+❌[0;31m 'subtask14-forall/testcase02' output does not match expected[0m
+Score: 98
